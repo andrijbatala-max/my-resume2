@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat:wght@700;900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #121212;
+    color: #eee;
+    padding: 0 15px 50px 15px;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    background-color: #222;
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.6);
+    border-radius: 15px;
+    max-width: 700px;
+    margin: 30px auto 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header h1 {
+    font-weight: 900;
+    font-size: 3.4rem;
+    color: #1db954;
+    text-shadow: 0 0 8px #1db954aa;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+header .subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #aaa;
+    font-style: italic;
+    user-select: none;
+}
+
+.resume-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    perspective: 1000px;
+}
+
+.info-box {
+    background-color: #222;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    color: #eee;
+}
+
+.info-box:hover {
+    transform: scale(1.05) rotateY(3deg);
+    box-shadow: 0 25px 50px rgba(255, 255, 255, 0.3);
+}
+
+.info-box h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.info-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1db954;
+    padding-bottom: 8px;
+    width: fit-content;
+}
+
+.position-tags {
+    margin-top: 8px;
+}
+
+.position-tags span {
+    display: inline-block;
+    background-color: #1db954;
+    color: #121212;
+    padding: 7px 15px;
+    margin-right: 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    user-select: none;
+}
+
+.contact-box a {
+    color: #1db954;
+    text-decoration: none;
+}
+
+.contact-box a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.hidden-phone,
+.hidden-address {
+    user-select: none;
+    color: #555;
+    font-style: italic;
+}
+
+/* Форма */
+.form-section {
+    margin: 60px auto 80px auto;
+    max-width: 700px;
+    padding: 25px 30px;
+    background-color: #222;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #1db954;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input, textarea {
+    padding: 15px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+input {
+    background-color: #333;
+    color: #eee;
+}
+
+textarea {
+    background-color: #333;
+    color: #eee;
+    min-height: 110px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+button {
+    padding: 16px;
+    background-color: #1db954;
+    color: #121212;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+button:hover {
+    background-color: #17a44a;
+}
+
+.footer-note {
+    margin-top: 25px;
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+/* Анимация появления */
+.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

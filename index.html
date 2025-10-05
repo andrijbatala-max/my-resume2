@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Резюме Веб-розробника</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== Общие стили ===== */
+        body {
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #121212;
+            color: #eee;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* ===== Герой ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin: 0 0 10px;
+            color: #1db954;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0 0 25px;
+            color: #eee;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero button {
+            background-color: #1db954;
+            border: none;
+            color: #121212;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero button:hover {
+            background-color: #17a44a;
+            transform: scale(1.05);
+        }
+
+        /* ===== Основной контент ===== */
+        .main-content {
+            max-width: 700px;
+            margin: 40px auto 60px;
+            padding: 0 15px;
+        }
+
+        .content-section {
+            background-color: #222;
+            padding: 25px 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-section h2 {
+            color: #1db954;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* ===== Отзывы ===== */
+        .review {
+            background-color: #1a1a1a;
+            padding: 25px 25px 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            font-style: italic;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInReview 0.8s ease forwards;
+            transition: transform 0.3s ease, box-shadow 0.4s ease;
+        }
+
+        .review:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 15px rgba(29, 185, 84, 0.3);
+        }
+
+        .review cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: 700;
+            color: #1db954;
+            text-align: right;
+        }
+
+        /* ===== Лайки ===== */
+        .like-btn {
+            position: absolute;
+            top: 10px;
+            right: 55px;
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s ease, transform 0.3s ease, opacity 0.4s ease;
+            opacity: 0;
+            animation: fadeInLike 1s ease forwards;
+        }
+
+        .like-btn:hover {
+            color: #1db954;
+            transform: scale(1.25) rotate(5deg);
+        }
+
+        .like-btn.liked {
+            color: #1db954;
+            animation: pulseLike 0.5s ease;
+        }
+
+        .like-count {
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            font-weight: 700;
+            color: #1db954;
+        }
+
+        /* ===== Форма отзывов ===== */
+        .review-form {
+            margin-top: 25px;
+            background-color: #1a1a1a;
+            padding: 25px;
+            border-radius: 15px;
+            box-sizing: border-box;
+            animation: fadeInReview 1s ease forwards;
+        }
+
+        .review-form:hover {
+            box-shadow: 0 0 15px rgba(29, 185, 84, 0.25);
+            transition: box-shadow 0.4s ease;
+        }
+
+        .review-form h3 {
+            color: #1db954;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .review-form textarea,
+        .review-form input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            resize: vertical;
+            background-color: #333;
+            color: #eee;
+            transition: background-color 0.3s ease;
+        }
+
+        .review-form textarea:focus,
+        .review-form input[type="text"]:focus {
+            outline: none;
+            background-color: #444;
+        }
+
+        .review-form button {
+            background-color: #1db954;
+            border: none;
+            color: #121212;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .review-form button:hover {
+            background-color: #17a44a;
+            transform: scale(1.05);
+        }
+
+        /* ===== Анимации ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInReview {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLike {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseLike {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="overlay">
+            <h1>Frontend Developer</h1>
+            <p>Кандидат на позицію Веб-розробника</p>
+            <a href="resume.html"><button>Перейти до резюме</button></a>
+        </div>
+    </div>
+
+    <!-- Контент -->
+    <main class="main-content">
+        <section id="info" class="content-section">
+            <h2>Інформація</h2>
+            <p>
+                Ми компанія <strong>PFB</strong>, яка підтримує талановитих новачків у сфері веб-розробки та дизайну.  
+                Для нас важливо створити дружню атмосферу, де кожен має змогу рости та розвиватися.  
+                Ми цінуємо креативність, відповідальність і бажання вчитися нового.
+            </p>
+        </section>
+
+        <section id="reviews" class="content-section">
+            <h2>Відгуки</h2>
+
+            <form id="review-form" class="review-form">
+                <h3>Додати свій відгук</h3>
+                <textarea id="review-text" placeholder="Ваш відгук..." required></textarea>
+                <input type="text" id="review-author" placeholder="Ваше ім'я" required />
+                <button type="submit">Надіслати</button>
+            </form>
+
+            <div id="reviews-list">
+                <div class="review">
+                    <button class="like-btn" aria-label="Like">&#128077;</button>
+                    <span class="like-count">0</span>
+                    <p>"Дуже красивий і зручний сайт, приємно працювати з командою PFB!"</p>
+                    <cite>— Олександр К.</cite>
+                </div>
+                <div class="review">
+                    <button class="like-btn" aria-label="Like">&#128077;</button>
+                    <span class="like-count">0</span>
+                    <p>"Компанія підтримує новачків і дає можливість розвиватися професійно."</p>
+                    <cite>— Марина Л.</cite>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script>
+    // ===== Лайки =====
+    document.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const likeCount = btn.nextElementSibling;
+            let count = parseInt(likeCount.textContent);
+            if (!btn.classList.contains('liked')) {
+                count++;
+                btn.classList.add('liked');
+            } else {
+                count--;
+                btn.classList.remove('liked');
+            }
+            likeCount.textContent = count;
+        });
+    });
+
+    // ===== Добавление отзывов =====
+    const form = document.getElementById('review-form');
+    const reviewsList = document.getElementById('reviews-list');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const text = document.getElementById('review-text').value.trim();
+        const author = document.getElementById('review-author').value.trim();
+
+        if (text && author) {
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `
+                <button class="like-btn" aria-label="Like">&#128077;</button>
+                <span class="like-count">0</span>
+                <p>"${text}"</p>
+                <cite>— ${author}</cite>
+            `;
+            reviewsList.appendChild(reviewDiv);
+            reviewDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // лайк
+            const likeBtn = reviewDiv.querySelector('.like-btn');
+            const likeCount = reviewDiv.querySelector('.like-count');
+            likeBtn.addEventListener('click', () => {
+                let count = parseInt(likeCount.textContent);
+                if (!likeBtn.classList.contains('liked')) {
+                    count++;
+                    likeBtn.classList.add('liked');
+                } else {
+                    count--;
+                    likeBtn.classList.remove('liked');
+                }
+                likeCount.textContent = count;
+            });
+
+            // Анимация появления нового отзыва
+            reviewDiv.animate([{ opacity: 0, transform: 'translateY(15px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 600, fill: 'forwards' });
+            form.reset();
+        }
+    });
+
+    // ===== Эффект появления секций =====
+    const sections = document.querySelectorAll('.content-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Резюме Андрія Батяли</title>
+    <link rel="stylesheet" href="resume.css" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Резюме Батяли</h1>
+        <p class="subtitle">Нужне резюме, яке потрібно буде вам представити після прийняття</p>
+    </header>
+
+    <section class="resume-container">
+        <div class="info-box">
+            <h2>Андрій Батяла Леонідович</h2>
+            <div class="position-tags">
+                <span>Веб-розробник</span>
+                <span>Дизайнер</span>
+            </div>
+        </div>
+
+        <div class="info-box contact-box">
+            <h3>Контактні дані</h3>
+            <p>Телефон: <span class="hidden-phone">+38 0XX XXX XX XX</span></p>
+            <p>Адреса: <span class="hidden-address">Івано-Франківськ, Україна</span></p>
+            <p>Пошта: <a href="mailto:andrijbatala@gmail.com">andrijbatala@gmail.com</a></p>
+        </div>
+
+        <div class="info-box">
+            <h3>Основні досягнення</h3>
+            <ul>
+                <li>Створення багатьох сайтів</li>
+                <li>Корегування існуючих проектів</li>
+                <li>Допомога у навчанні новачків</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Досвід роботи</h3>
+            <p>Працюю у сфері веб-розробки вже 5 років, хоч мені лише 14 років.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Освіта і професійні навички</h3>
+            <p>Навчався у школі програмування "Code Academy" в Івано-Франківську.</p>
+            <p>Володію HTML, CSS, JavaScript, базовий Python.</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Додаткові навички</h3>
+            <ul>
+                <li>Робота з Canva та Figma</li>
+                <li>Основи UX/UI дизайну</li>
+                <li>Базове знання Git і GitHub</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Особисті якості</h3>
+            <ul>
+                <li>Комунікабельність</li>
+                <li>Вміння працювати з клієнтами</li>
+                <li>Відповідальність та організованість</li>
+                <li>Швидко навчаюсь новому</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>Рекомендації</h3>
+            <p>"Андрій показав себе як відповідальний та креативний розробник, який завжди допомагає команді."</p>
+        </div>
+
+        <div class="info-box">
+            <h3>Додаткова інформація</h3>
+            <p>Використовую Visual Studio Code, Git, Google Chrome DevTools.</p>
+            <p>Основні мови програмування: HTML, CSS, JavaScript, трохи Python.</p>
+        </div>
+    </section>
+
+    <section class="form-section">
+        <h2>Заповніть заявку</h2>
+        <form onsubmit="return handleSubmit(event)">
+            <input type="text" placeholder="Ваше ім’я" required />
+            <input type="number" placeholder="Ваш вік" required />
+            <textarea placeholder="Інформація про себе" required></textarea>
+            <input type="email" placeholder="Ваша електронна пошта" required />
+            <button type="submit">Відправити</button>
+        </form>
+        <p class="footer-note">При прийомі вас ми напишемо вам особисто на пошту</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
